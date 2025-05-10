@@ -15,33 +15,6 @@ namespace RHControl
     {
 
         /// <summary>
-        /// Controle divLogoDTS.
-        /// </summary>
-        /// <remarks>
-        /// Campo gerado automaticamente.
-        /// Para modificar, mova a declaração de campo do arquivo de designer a um arquivo code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divLogoDTS;
-
-        /// <summary>
-        /// Controle liTrocaDevolucao.
-        /// </summary>
-        /// <remarks>
-        /// Campo gerado automaticamente.
-        /// Para modificar, mova a declaração de campo do arquivo de designer a um arquivo code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl liTrocaDevolucao;
-
-        /// <summary>
-        /// Controle liDocumentCenterNextel.
-        /// </summary>
-        /// <remarks>
-        /// Campo gerado automaticamente.
-        /// Para modificar, mova a declaração de campo do arquivo de designer a um arquivo code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl liDocumentCenterNextel;
-
-        /// <summary>
         /// Controle MainContent.
         /// </summary>
         /// <remarks>

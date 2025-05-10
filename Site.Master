@@ -44,24 +44,7 @@
             </Scripts>
         </asp:ScriptManager>
 
-        <div class="cl-sidebar">
-            <div class="cl-toggle"><i class="fa fa-bars"></i></div>
-            <div class="cl-navblock">
-                <div class="menu-space">
-                    <div class="content">
-                        <div id="divLogoDTS" runat="server" class="sidebar-logo">
-                            <div class="logo">
-                                <a href="#"></a>
-                            </div>
-                        </div>
-                        <ul class="cl-vnavigation ">
-                            <li id="liTrocaDevolucao" runat="server"><a href="/Loja/DevolucaoTroca/DevolucaoTroca.aspx"><i class="fa fa-exchange"></i><span>Troca / Devolução</span></a></li>
-                            <li id="liDocumentCenterNextel" runat="server" visible="false"><a href="/Loja/DocumentCenter/Nextel/ListaEnvioDocCenter.aspx"><i class="fa fa-table"></i><span>Document Center</span></a></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
+
         <div class="container body-content">
             <asp:ContentPlaceHolder ID="MainContent" runat="server">
             </asp:ContentPlaceHolder>
