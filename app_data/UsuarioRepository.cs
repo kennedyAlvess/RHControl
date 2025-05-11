@@ -37,10 +37,13 @@ namespace RHControl.Repository
                         }
                     }
                 }
-                catch (Exception ex)
+                catch (OracleException)
                 {
-                    throw new ArgumentException(ex.Message);
-
+                    throw new ArgumentException("Erro ao executar comando.");
+                }
+                catch (Exception)
+                {
+                    throw new ArgumentException("Erro inesperado.");
                 }
                 return false;
             }
