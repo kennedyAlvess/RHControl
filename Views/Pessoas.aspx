@@ -1,34 +1,11 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Pessoas.aspx.cs" MasterPageFile="~/Site.Master" Inherits="RHControl.Views.Pessoas" Async="true"%>
+﻿<%@ Page Language="C#" Title="Funcionários" AutoEventWireup="true" CodeBehind="Pessoas.aspx.cs" MasterPageFile="~/Site.Master" Inherits="RHControl.Views.Pessoas" Async="true"%>
 
 <asp:Content ID="HeadContent" ContentPlaceHolderID="HeadContent" runat="server">
-    <style>
-        .pagination-data a, .pagination-data span {
-            padding: 6px 12px;
-            margin: 0 3px;
-            border-radius: .5rem;
-            text-decoration: none;
-            border: 1px solid #ccc;
-            background-color: #f5f5f5;
-            color: #333;
-            cursor: pointer;
-            transition: .5s;
-        }
-
-            .pagination-data a:hover {
-                background-color: #ddd;
-            }
-
-        .pagination-data .current-page {
-            font-weight: bold;
-            background-color: #007bff;
-            color: #fff;
-        }
-    </style>
 </asp:Content>
 
 <asp:Content ID="BodyContent" Visible="false" ContentPlaceHolderID="MainContent" runat="server">
 
-    <h3 class="mb-4">Pessoas</h3>
+    <h3 class="mb-4">Funcionários</h3>
     <div class="d-flex flex-wrap justify-content-between align-items-end mb-4 gap-3">
 
         <div class="d-flex flex-column flex-sm-row align-items-sm-end gap-2">

@@ -1,16 +1,9 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Relatorios.aspx.cs" Inherits="RHControl.Views.Relatorios" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" Title="Relatórios" CodeBehind="Relatorios.aspx.cs" MasterPageFile="~/Site.Master" Inherits="RHControl.Views.Relatorios" %>
 
-<!DOCTYPE html>
+<asp:Content ID="HeadContent" ContentPlaceHolderID="HeadContent" runat="server">
+</asp:Content>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head runat="server">
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <title></title>
-</head>
-<body>
-    <form id="form1" runat="server">
-        <div>
-        </div>
-    </form>
-</body>
-</html>
+<asp:Content ID="BodyContent" Visible="false" ContentPlaceHolderID="MainContent" runat="server">
+
+</asp:Content>
+
