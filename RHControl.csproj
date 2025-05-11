@@ -154,6 +154,7 @@
     <Content Include="Scripts\jquery-3.7.0.min.js" />
     <Content Include="Scripts\jquery-3.7.0.slim.js" />
     <Content Include="Scripts\jquery-3.7.0.slim.min.js" />
+    <Content Include="Scripts\mascaras.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
     <Content Include="Scripts\WebForms\DetailsView.js" />
     <Content Include="Scripts\WebForms\Focus.js" />
@@ -179,19 +180,24 @@
     <Content Include="Site.Master" />
     <Content Include="ViewSwitcher.ascx" />
     <Content Include="Views\Login.aspx" />
+    <Content Include="Views\Logout.aspx" />
     <Content Include="Views\Pessoas.aspx" />
     <Content Include="Views\Relatorios.aspx" />
-    <Content Include="Views\Salarios.aspx" />
     <Content Include="Web.config" />
     <Content Include="Bundle.config" />
     <Content Include="Site.Mobile.Master" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="App_Data\CargoRepository.cs" />
     <Compile Include="App_Data\PessoaRepository.cs" />
+    <Compile Include="App_Data\PessoaSalarioRepository.cs" />
     <Compile Include="App_Data\UsuarioRepository.cs" />
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="DTO\Cargo\Cargo.cs" />
     <Compile Include="DTO\Pessoa\PessoaList.cs" />
+    <Compile Include="DTO\Pessoa\PessoaModel.cs" />
+    <Compile Include="DTO\Pessoa\ViaCepResult.cs" />
     <Compile Include="DTO\Usuario\UsuarioLoginDto.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -225,6 +231,13 @@
     <Compile Include="Views\Login.aspx.designer.cs">
       <DependentUpon>Login.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Views\Logout.aspx.cs">
+      <DependentUpon>Logout.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Logout.aspx.designer.cs">
+      <DependentUpon>Logout.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Views\Pessoas.aspx.cs">
       <DependentUpon>Pessoas.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -238,13 +251,6 @@
     </Compile>
     <Compile Include="Views\Relatorios.aspx.designer.cs">
       <DependentUpon>Relatorios.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Views\Salarios.aspx.cs">
-      <DependentUpon>Salarios.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Views\Salarios.aspx.designer.cs">
-      <DependentUpon>Salarios.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
