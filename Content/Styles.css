@@ -52,6 +52,11 @@
     }
 }
 
+.swal2-icon.swal2-warning {
+    font-size: 1em !important;
+    width: 4em !important;
+    height: 4em !important;
+}
 /* Content/estilos.css */
 
 

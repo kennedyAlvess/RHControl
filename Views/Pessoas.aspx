@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" Title="Funcionários" AutoEventWireup="true" CodeBehind="Pessoas.aspx.cs" MasterPageFile="~/Site.Master" Inherits="RHControl.Views.Pessoas" Async="true"%>
+﻿<%@ Page Language="C#" Title="Funcionários" AutoEventWireup="true" CodeBehind="Pessoas.aspx.cs" MasterPageFile="~/Site.Master" Inherits="RHControl.Views.Pessoas"  Async="true"%>
 
 <asp:Content ID="HeadContent" ContentPlaceHolderID="HeadContent" runat="server">
 </asp:Content>
@@ -28,7 +28,7 @@
     </asp:Label>
 
 
-    <div class="modal fade" id="pessoaModal" tabindex="-1" aria-labelledby="pessoaModalLabel" aria-hidden="true">
+    <div class="modal fade" id="pessoaModal" tabindex="-1" aria-labelledby="pessoaModalLabel">
         <div class="modal-dialog modal-lg">
             <div class="modal-content">
                 <div class="modal-header">
@@ -163,6 +163,7 @@
                             runat="server"
                             CommandName="Excluir"
                             CommandArgument='<%# Eval("ID") %>'
+                            OnClientClick="return confirmarExclusao(this);"
                             CssClass="btn btn-danger btn-sm"
                             ToolTip="Excluir">
                             <i class="bi bi-trash"></i>
