@@ -208,7 +208,6 @@
     <Compile Include="DTO\Pessoa\PessoaModel.cs" />
     <Compile Include="DTO\Pessoa\ViaCepResult.cs" />
     <Compile Include="DTO\Usuario\UsuarioLoginDto.cs" />
-    <Compile Include="Extras\Extras.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -285,6 +284,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Content\Img\" />
+    <Folder Include="ExportDataBase\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
