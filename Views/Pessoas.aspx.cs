@@ -3,6 +3,7 @@ using RHControl.Repository;
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Globalization;
 using System.Net;
 using System.Web.Script.Serialization;
 using System.Web.UI;
@@ -296,7 +297,7 @@ namespace RHControl.Views
                 row["Id"] = pessoa.Id;
                 row["Nome"] = pessoa.Nome;
                 row["Cargo"] = pessoa.Cargo;
-                row["Salario"] = pessoa.Salario;
+                row["Salario"] = pessoa.Salario == 0? "Salário não calculado": pessoa.Salario.ToString("C2", CultureInfo.CreateSpecificCulture("pt-BR"));
                 dataTable.Rows.Add(row);
             }
 

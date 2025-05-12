@@ -23,7 +23,7 @@ namespace RHControl.Repository
                     string query = @"SELECT p.ID, 
                                             p.NOME,
                                             c.Nome CARGO, 
-                                            NVL(ps.SALARIO_LIQUIDO,'Salario não calculado') SALARIO 
+                                            ps.SALARIO_LIQUIDO SALARIO 
                                     FROM PESSOA p 
                                     INNER JOIN CARGO c on c.ID = p.CARGO_ID 
                                     LEFT JOIN PESSOA_SALARIO ps on ps.PESSOA_ID = p.ID
@@ -42,7 +42,7 @@ namespace RHControl.Repository
                                         Id = Convert.ToInt32(reader["ID"]),
                                         Nome = reader["NOME"].ToString(),
                                         Cargo = reader["CARGO"].ToString(),
-                                        Salario = reader["SALARIO"].ToString()
+                                        Salario = reader.IsDBNull(reader.GetOrdinal("SALARIO")) ? 0 : Convert.ToDecimal(reader["SALARIO"])
                                     });
 
 
@@ -91,7 +91,7 @@ namespace RHControl.Repository
                                         Id = Convert.ToInt32(reader["ID"]),
                                         Nome = reader["NOME"].ToString(),
                                         Cargo = reader["CARGO"].ToString(),
-                                        Salario = reader["SALARIO"].ToString()
+                                        Salario = reader.IsDBNull(reader.GetOrdinal("SALARIO")) ? 0 : Convert.ToDecimal(reader["SALARIO"])
                                     });
                             }
                         }

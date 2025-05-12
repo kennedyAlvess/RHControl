@@ -1,5 +1,6 @@
 using Oracle.ManagedDataAccess.Client;
 using RHControl.DTO.Pessoa;
+using RHControl.DTO.PessoaSalario;
 using System;
 using System.Collections.Generic;
 using System.Configuration;

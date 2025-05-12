@@ -7,29 +7,20 @@
 // </gerado automaticamente>
 //------------------------------------------------------------------------------
 
-namespace RHControl.Views
+namespace RHControl.Relatorios
 {
 
 
-    public partial class Relatorios
+    public partial class VisualizarRelatorioPdf
     {
 
         /// <summary>
-        /// Controle ddlFiltroCargoSalarios.
+        /// Controle CrystalReportViewer.
         /// </summary>
         /// <remarks>
         /// Campo gerado automaticamente.
         /// Para modificar, mova a declaração de campo do arquivo de designer a um arquivo code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlFiltroCargoSalarios;
-
-        /// <summary>
-        /// Controle ddlFiltroCargoFuncionarios.
-        /// </summary>
-        /// <remarks>
-        /// Campo gerado automaticamente.
-        /// Para modificar, mova a declaração de campo do arquivo de designer a um arquivo code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlFiltroCargoFuncionarios;
+        protected global::CrystalDecisions.Web.CrystalReportViewer CrystalReportViewer;
     }
 }

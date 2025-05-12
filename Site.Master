@@ -73,7 +73,7 @@
                     <li class="nav-item border-bottom">
                         <a class="nav-link text-white d-flex align-items-center my-2" href="/Views/Relatorios.aspx">
                             <i class="lni lni-bar-chart me-3"></i>
-                            <span>Relatório</span>
+                            <span>Relatório Funcionários</span>
                         </a>
                     </li>
                 </ul>
