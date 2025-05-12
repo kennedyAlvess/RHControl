@@ -20,7 +20,7 @@ Este projeto ASP.NET WebForms foi desenvolvido com foco em **processamento assí
 ✔️ **CRUD de Pessoas**  
 - Permite adicionar, editar, visualizar e excluir registros de pessoas.  
 - Interface criada com ASP.NET WebForms.
-- 
+
 ✔️ **Calculo do salário**  
 - Permite calcular o salário individual de cada pessoa.
 - Permite calcular os salários de todas as pessoas cadastradas.
@@ -67,6 +67,6 @@ Substitua `{user}`, `{senha}` e `{service_name}` pelos valores correspondentes a
 
 - Script para criação do banco de dados e objetos necessários está disponível [aqui](https://github.com/kennedyAlvess/RHControl/blob/master/ExportDataBase/exportar.sql).
 
-Certifique-se de que os objetos do banco (view, function e procedure) estejam devidamente criados antes da execução do cálculo de salários.
-O relatório .rpt está localizado na pasta Reports e pode ser customizado conforme necessário.
-O login inicial pode ser feito com um usuário cadastrado manualmente; (O script disponibilizado para criação do banco de dados possui um usuário pré-cadastrado com o nome de `kennedy` e senha `123mudar`).
+- Certifique-se de que os objetos do banco (view, function e procedure) estejam devidamente criados antes da execução do cálculo de salários.
+- O relatório .rpt está localizado na pasta Relatorios e pode ser customizado conforme necessário.
+- O login inicial pode ser feito com um usuário cadastrado manualmente; (O script disponibilizado para criação do banco de dados possui um usuário pré-cadastrado com o nome de `kennedy` e senha `123mudar`).
