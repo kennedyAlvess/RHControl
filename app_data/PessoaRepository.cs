@@ -13,7 +13,7 @@ namespace RHControl.Repository
     {
         readonly string connectionString = ConfigurationManager.ConnectionStrings["OracleConn"].ConnectionString;
 
-        public List<PessoaList> GetPessoasList()
+        public List<PessoaList> GetPessoas(string requestNome, int cargoId, int cargoId2)
         {
             using (OracleConnection connection = new OracleConnection(connectionString))
             {
@@ -26,60 +26,16 @@ namespace RHControl.Repository
                                             ps.SALARIO_LIQUIDO SALARIO 
                                     FROM PESSOA p 
                                     INNER JOIN CARGO c on c.ID = p.CARGO_ID 
-                                    LEFT JOIN PESSOA_SALARIO ps on ps.PESSOA_ID = p.ID
-                                    order by p.NOME";
-
-                    connection.Open();
-                    using (OracleCommand command = new OracleCommand(query, connection))
-                    {
-                        using (OracleDataReader reader = command.ExecuteReader())
-                        {
-                            while (reader.Read())
-                            {
-                                pessoasList.Add(
-                                    new PessoaList()
-                                    {
-                                        Id = Convert.ToInt32(reader["ID"]),
-                                        Nome = reader["NOME"].ToString(),
-                                        Cargo = reader["CARGO"].ToString(),
-                                        Salario = reader.IsDBNull(reader.GetOrdinal("SALARIO")) ? 0 : Convert.ToDecimal(reader["SALARIO"])
-                                    });
-
-
-                            }
-                        }
-                    }
-                    return pessoasList;
-                }
-                catch (OracleException ex)
-                {
-                    throw new ArgumentException("Erro ao executar o comando. " + ex.Message);
-                }
-                catch (Exception ex)
-                {
-                    throw new ArgumentException("Erro Inesperado. " + ex.Message);
-                }
-            }
-        }
-        public List<PessoaList> GetPessoasByNome(string requestNome)
-        {
-            using (OracleConnection connection = new OracleConnection(connectionString))
-            {
-                try
-                {
-                    List<PessoaList> pessoasList = new List<PessoaList>();
-                    string query = @"SELECT p.ID, 
-                                            p.NOME,
-                                            c.Nome CARGO, 
-                                            NVL(ps.SALARIO_LIQUIDO,'Salario não calculado') SALARIO 
-                                    FROM PESSOA p 
-                                    INNER JOIN CARGO c on c.ID = p.CARGO_ID 
                                     LEFT JOIN PESSOA_SALARIO ps on ps.PESSOA_ID = p.ID       
-                                    WHERE p.NOME like :requestNome || '%' ";
+                                    WHERE ( :cargoId = 0 OR p.CARGO_ID = :cargoId2 )
+                                       AND UPPER(p.NOME) like :requestNome || '%'
+                                    ORDER BY p.NOME";
 
                     connection.Open();
                     using (OracleCommand command = new OracleCommand(query, connection))
                     {
+                        command.Parameters.Add(new OracleParameter("cargoId", cargoId));
+                        command.Parameters.Add(new OracleParameter("cargoId2", cargoId2));
                         command.Parameters.Add(new OracleParameter("requestNome", requestNome));
                         using (OracleDataReader reader = command.ExecuteReader())
                         {

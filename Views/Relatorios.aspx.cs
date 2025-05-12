@@ -15,12 +15,11 @@ namespace RHControl.Views
 
             CarregarDropDownsLists();
         }
-
         protected void lkExcel_Click(object sender, EventArgs e)
         {
             LinkButton rel = (LinkButton)sender;
 
-            int cargoId = Convert.ToInt32(ddlFiltroCargoSalarios.SelectedItem.Value);
+            int cargoId = rel.CommandName == "Salarios" ? Convert.ToInt32(ddlFiltroCargoSalarios.SelectedItem.Value) : Convert.ToInt32(ddlFiltroCargoFuncionarios.SelectedItem.Value);
             string script = $"window.open('{ResolveUrl(string.Format("~/Relatorios/VisualizarRelatorios.aspx?cargoId={0}&tipoRelatorio={2}&rel={1}", cargoId, rel.CommandName, "Excel"))}', '_blank');";
             ClientScript.RegisterStartupScript(this.GetType(), "AbrirRelatorio", script, true);
         }

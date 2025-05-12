@@ -1,28 +1,37 @@
 ﻿<%@ Page Language="C#" Title="Funcionários" AutoEventWireup="true" CodeBehind="Pessoas.aspx.cs" MasterPageFile="~/Site.Master" Inherits="RHControl.Views.Pessoas"  Async="true"%>
 
 <asp:Content ID="HeadContent" ContentPlaceHolderID="HeadContent" runat="server">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"></script>
+    <script src="../Scripts/mascaras.js"></script>
+    <script>
+        function UpdatePanel() {
+            Mascaras();
+        }
+    </script>
 </asp:Content>
 
 <asp:Content ID="BodyContent" Visible="false" ContentPlaceHolderID="MainContent" runat="server">
+    <script type="text/javascript">Sys.WebForms.PageRequestManager.getInstance().add_endRequest(UpdatePanel);</script>
 
     <h3 class="mb-4">Funcionários</h3>
     <div class="d-flex flex-wrap justify-content-between align-items-end mb-4 gap-3">
-
         <div class="d-flex flex-column flex-sm-row align-items-sm-end gap-2">
-            <div>
+            <div class="form-floating">
+                <asp:DropDownList runat="server" ID="ddlFiltroCargoFuncionarios" CssClass="form-select form-select-sm" Style="width: 150px;"></asp:DropDownList>
+                <label for="ddlFiltroCargoFuncionarios">Cargo</label>
+            </div>
+            <div class="form-floating">
                 <asp:HiddenField runat="server" ID="hfPesquisar" />
                 <asp:TextBox runat="server" ID="txtPesquisar" CssClass="form-control" placeholder="Nome" />
+                <label for="txtPesquisar">Nome</label>
             </div>
             <asp:Button runat="server" ID="btnPesquisar" OnClick="btnPesquisar_Click" Text="Pesquisar" CssClass="btn btn-secondary" />
         </div>
-
         <div class="d-flex gap-2">
-
             <asp:Button runat="server" ID="btnCalcularSalarios" Text="Calcular Salários" OnClientClick="showLoading()" OnClick="btnCalcularSalarios_Click" CssClass="btn btn-secondary" />
-
             <asp:Button runat="server" OnClick="btnAdicionar_Click" class="btn btn-success" Text="+ Adicionar" />
         </div>
-
     </div>
     <asp:Label ID="msgSemRegistros" runat="server" class="text-danger d-block mt-3" Visible="false">Nenhum registro encontrado.
     </asp:Label>
@@ -88,8 +97,8 @@
                             </div>
 
                             <div class="modal-footer">
-                                <asp:LinkButton runat="server" ID="btnCancelar" OnClick="btnCancelar_Click" CssClass="btn btn-secondary" Text="Cancelar" />
                                 <asp:LinkButton runat="server" ID="btnSalvar" OnClick="btnSalvar_Click" CssClass="btn btn-primary" Text="Salvar" />
+                                <asp:LinkButton runat="server" ID="btnCancelar" OnClick="btnCancelar_Click" CssClass="btn btn-secondary" Text="Cancelar" />
                             </div>
                         </div>
                     </ContentTemplate>
@@ -104,6 +113,7 @@
 
 
     <asp:GridView
+        ShowHeaderWhenEmpty="true"
         ID="gridView"
         runat="server"
         AutoGenerateColumns="False"

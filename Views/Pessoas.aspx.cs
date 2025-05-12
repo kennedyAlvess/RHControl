@@ -15,12 +15,13 @@ namespace RHControl.Views
     {
         readonly PessoaRepository _pessoaRepository = new PessoaRepository();
         readonly CargoRepository _cargoRepository = new CargoRepository();
+        readonly PessoaSalarioRepository _pessoaSalarioRepository = new PessoaSalarioRepository();
         protected void Page_Load(object sender, EventArgs e)
         {
             if (IsPostBack)
                 return;
 
-            BindGridViewData(_pessoaRepository.GetPessoasList());
+            BindGridViewData(new List<PessoaList>());
             CarregarCargos();
         }
 
@@ -41,7 +42,7 @@ namespace RHControl.Views
             if (gridView != null)
             {
                 gridView.PageIndex = e.NewPageIndex;
-                List<PessoaList> pessoas = ViewStatePessoas ?? _pessoaRepository.GetPessoasList();
+                List<PessoaList> pessoas = ViewStatePessoas ?? _pessoaRepository.GetPessoas("", 0, 0);
                 BindGridViewData(pessoas);
             }
         }
@@ -71,7 +72,7 @@ namespace RHControl.Views
                             return;
                         }
                         ExibirAlerta("Sucesso!", "Funcionário removido com sucesso.", "success");
-                        BindGridViewData(_pessoaRepository.GetPessoasList());
+                        BindGridViewData(_pessoaRepository.GetPessoas("",0,0));
                         break;
                     }
                 case "Calcular":
@@ -87,7 +88,7 @@ namespace RHControl.Views
 
                         ExibirAlerta("Sucesso!", "Salário calculado com sucesso.", "success");
 
-                        BindGridViewData(_pessoaRepository.GetPessoasList());
+                        BindGridViewData(_pessoaRepository.GetPessoas("",0,0));
                         break;
                     }
                 default:
@@ -100,7 +101,7 @@ namespace RHControl.Views
             try
             {
                 await _pessoaRepository.CalcularSalarios();
-                BindGridViewData(_pessoaRepository.GetPessoasList());
+                BindGridViewData(_pessoaRepository.GetPessoas("", 0, 0));
                 ExibirAlerta("Sucesso!", "Salários calculados com sucesso.", "success");
             }
             catch (Exception ex)
@@ -114,12 +115,8 @@ namespace RHControl.Views
         }
         protected void btnPesquisar_Click(object sender, EventArgs e)
         {
-            if (!string.IsNullOrWhiteSpace(txtPesquisar.Text))
-            {
-                BindGridViewData(_pessoaRepository.GetPessoasByNome(txtPesquisar.Text));
-                return;
-            }
-            BindGridViewData(_pessoaRepository.GetPessoasList());
+            int cargoId = Convert.ToInt32(ddlFiltroCargoFuncionarios.SelectedItem.Value);
+            BindGridViewData(_pessoaRepository.GetPessoas(txtPesquisar.Text.ToUpper(), cargoId, cargoId));
         }
         protected void btnAdicionar_Click(object sender, EventArgs e)
         {
@@ -166,11 +163,11 @@ namespace RHControl.Views
                 return;
             }
 
-            if(!isInsert)
+            if(!isInsert && _pessoaSalarioRepository.PessoaSalarioExiste((int)pessoa.Id))
                 await _pessoaRepository.CalcularSalarioPessoa(pessoa.Id.Value);
 
-            ExibirAlerta("Sucesso!", "Concluído!", "success");
-            BindGridViewData(_pessoaRepository.GetPessoasList());
+            ExibirAlerta("Concluido", "", "success");
+            BindGridViewData(_pessoaRepository.GetPessoas("", 0, 0));
         }
         #endregion
 
@@ -309,15 +306,22 @@ namespace RHControl.Views
             var dtPessoas = PreencherDtPessoas(pessoas);
             gridView.DataSource = dtPessoas;
             gridView.DataBind();
-            msgSemRegistros.Visible = !(dtPessoas.Rows.Count > 0);
         }
         private void CarregarCargos()
         {
-            ddlCargo.DataSource = _cargoRepository.GetCargos();
+            var cargos = _cargoRepository.GetCargos();
+
+            ddlCargo.DataSource = cargos;
             ddlCargo.DataTextField = "Nome";
             ddlCargo.DataValueField = "Id";
             ddlCargo.DataBind();
             ddlCargo.Items.Insert(0, new ListItem("Selecione", "0"));
+
+            ddlFiltroCargoFuncionarios.DataSource = _cargoRepository.GetCargos();
+            ddlFiltroCargoFuncionarios.DataTextField = "Nome";
+            ddlFiltroCargoFuncionarios.DataValueField = "Id";
+            ddlFiltroCargoFuncionarios.DataBind();
+            ddlFiltroCargoFuncionarios.Items.Insert(0, new ListItem("Todos", "0"));
         }
         private void ExibirModal()
         {

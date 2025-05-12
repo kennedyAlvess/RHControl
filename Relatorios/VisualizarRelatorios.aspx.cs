@@ -47,13 +47,14 @@ namespace RHControl.Relatorios
             ReportDocument novoRelatorio = new ReportDocument();
 
             if(rel == "Salarios")
-            { 
+            {
                 novoRelatorio.Load(Server.MapPath("~/Relatorios/FuncionariosSalarios.rpt"));
             }
             else
             {
                 novoRelatorio.Load(Server.MapPath("~/Relatorios/FuncionariosDados.rpt"));
             }
+            novoRelatorio.SetParameterValue("cargoId", cargoId);
 
             CrystalReportRepository.SetReportConnection(novoRelatorio);
 

@@ -11,14 +11,23 @@
         <div class="card-header">
             Salário Funcionário
         </div>
-        <div class="card-body d-flex">
+        <div class="card-body">
             <div class="d-flex flex-column">
                 <label>Cargo:</label>
-                <div class="d-flex gap-2 mb-3">
-                    <asp:DropDownList runat="server" ID="ddlFiltroCargoSalarios" CssClass="col-md-2 form-select form-select-sm">
-                    </asp:DropDownList>
-                    <asp:LinkButton runat="server" CommandName="Salarios" OnClick="lkExcel_Click" CssClass="col-md-5 btn btn-success btn-ms d-flex align-items-center justify-content-center"> <i class="bi bi-file-earmark-excel me-2"></i> Planilha </asp:LinkButton>
-                    <asp:LinkButton runat="server" OnClick="lkPdf_Click" CssClass="col-md-5 btn btn-danger btn-ms d-flex align-items-center justify-content-center"> <i class="bi bi-file-earmark-pdf me-2"></i> PDF</asp:LinkButton>
+                <div class="d-flex flex-wrap gap-2 mb-3 align-items-start">
+                    <asp:DropDownList runat="server" ID="ddlFiltroCargoSalarios" CssClass="form-select form-select-sm" Style="width: 150px;"></asp:DropDownList>
+
+                    <asp:LinkButton runat="server" CommandName="Salarios" OnClick="lkExcel_Click"
+                        CssClass="btn btn-success btn-sm d-flex align-items-center justify-content-center"
+                        Style="min-width: 120px;">
+                <i class="bi bi-file-earmark-excel me-2"></i> Planilha
+                    </asp:LinkButton>
+
+                    <asp:LinkButton runat="server" OnClick="lkPdf_Click"
+                        CssClass="btn btn-danger btn-sm d-flex align-items-center justify-content-center"
+                        Style="min-width: 120px;">
+                <i class="bi bi-file-earmark-pdf me-2"></i> PDF
+                    </asp:LinkButton>
                 </div>
             </div>
         </div>
@@ -34,10 +43,14 @@
         <div class="card-body d-flex">
             <div class="d-flex flex-column">
                 <label>Cargo:</label>
-                <div class="d-flex gap-2 mb-2">
-                    <asp:DropDownList runat="server" ID="ddlFiltroCargoFuncionarios" CssClass="col-md-2 form-select form-select-sm">
-                    </asp:DropDownList>
-                    <asp:LinkButton runat="server" CommandName="Funcionarios" OnClick="lkExcel_Click" CssClass="col-md-5 btn btn-success btn-ms d-flex align-items-center justify-content-center"> <i class="bi bi-file-earmark-excel me-2"></i> Planilha </asp:LinkButton>
+                <div class="d-flex flex-wrap gap-2 mb-3 align-items-start">
+                    <asp:DropDownList runat="server" ID="ddlFiltroCargoFuncionarios" CssClass="form-select form-select-sm" Style="width: 150px;"></asp:DropDownList>
+
+                    <asp:LinkButton runat="server" CommandName="Funcionarios" OnClick="lkExcel_Click"
+                        CssClass="btn btn-success btn-sm d-flex align-items-center justify-content-center"
+                        Style="min-width: 120px;">
+                <i class="bi bi-file-earmark-excel me-2"></i> Planilha
+                    </asp:LinkButton>
                 </div>
             </div>
         </div>

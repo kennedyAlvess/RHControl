@@ -15,6 +15,15 @@ namespace RHControl.Views
     {
 
         /// <summary>
+        /// Controle ddlFiltroCargoFuncionarios.
+        /// </summary>
+        /// <remarks>
+        /// Campo gerado automaticamente.
+        /// Para modificar, mova a declaração de campo do arquivo de designer a um arquivo code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddlFiltroCargoFuncionarios;
+
+        /// <summary>
         /// Controle hfPesquisar.
         /// </summary>
         /// <remarks>
@@ -186,15 +195,6 @@ namespace RHControl.Views
         protected global::System.Web.UI.WebControls.TextBox txtPais;
 
         /// <summary>
-        /// Controle btnCancelar.
-        /// </summary>
-        /// <remarks>
-        /// Campo gerado automaticamente.
-        /// Para modificar, mova a declaração de campo do arquivo de designer a um arquivo code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton btnCancelar;
-
-        /// <summary>
         /// Controle btnSalvar.
         /// </summary>
         /// <remarks>
@@ -202,6 +202,15 @@ namespace RHControl.Views
         /// Para modificar, mova a declaração de campo do arquivo de designer a um arquivo code-behind.
         /// </remarks>
         protected global::System.Web.UI.WebControls.LinkButton btnSalvar;
+
+        /// <summary>
+        /// Controle btnCancelar.
+        /// </summary>
+        /// <remarks>
+        /// Campo gerado automaticamente.
+        /// Para modificar, mova a declaração de campo do arquivo de designer a um arquivo code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton btnCancelar;
 
         /// <summary>
         /// Controle gridView.
