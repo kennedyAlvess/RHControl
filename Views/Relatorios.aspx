@@ -5,7 +5,7 @@
 
 <asp:Content ID="BodyContent" Visible="false" ContentPlaceHolderID="MainContent" runat="server">
 
-    <h3 class="mb-4">Funcionários</h3>
+    <h3 class="mb-4">Relatórios</h3>
 
     <div class="card text-left col-sm-6 cl-md-6 mt-5 mb-5">
         <div class="card-header">
