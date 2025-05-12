@@ -65,7 +65,7 @@ Substitua `{user}`, `{senha}` e `{service_name}` pelos valores correspondentes a
 
 ### 3. Observações
 
-- Script para criação do banco de dados e objetos necessários está disponível [aqui](https://github.com/kennedyAlvess/RHControl/blob/master/ExportDataBase/exportar.sql).
+- Script para criação do banco de dados e objetos necessários está disponível [aqui](https://github.com/kennedyAlvess/RHControl/blob/master/ExportDataBase).
 
 - Certifique-se de que os objetos do banco (view, function e procedure) estejam devidamente criados antes da execução do cálculo de salários.
 - O relatório .rpt está localizado na pasta Relatorios e pode ser customizado conforme necessário.
