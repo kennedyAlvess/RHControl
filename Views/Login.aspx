@@ -20,7 +20,7 @@
             <div class="row w-100 shadow rounded bg-white overflow-hidden" style="max-width: 900px;">
 
                 <div class="col-md-6 d-none d-md-flex align-items-center justify-content-center p-4">
-                    <img src="../Content/Img/LoginImg.png" alt="Login RH" class="img-fluid" />
+                    <img src="<%= ResolveUrl("~/Content/Img/LoginImg.png") %>"" alt="Login RH" class="img-fluid" />
                 </div>
 
                 <div class="col-md-6 p-5 d-flex flex-column justify-content-center">
@@ -43,6 +43,6 @@
         </div>
     </form>
 
-    <script src="../Scripts/bootstrap.bundle.min.js"></script>
+    <script src="<%= ResolveUrl("~/Scripts/bootstrap.bundle.min.js") %>"></script>
 </body>
 </html>
