@@ -30,7 +30,7 @@ namespace RHControl.Views
         {
             string cep = txtCep.Text.Replace("-", "");
 
-            if (!(cep.Length == 8) && !int.TryParse(cep, out _))
+            if (!(cep.Length == 8) || !int.TryParse(cep, out _))
             {
                 ExibirAlerta("Aviso!", "Informe um CEP valido.", "error");
                 return;
