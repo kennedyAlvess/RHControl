@@ -197,7 +197,7 @@ namespace RHControl.Views
         private bool ValidarCampos()
         {
             bool isValid = true;
-
+            ResetarCamposCss();
             var campos = new Dictionary<WebControl, bool>
             {
                 { txtNome, !string.IsNullOrWhiteSpace(txtNome.Text)},
